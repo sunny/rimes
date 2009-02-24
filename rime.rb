@@ -18,8 +18,8 @@
 # Thanks to bohwaz's http://tilt.eu.org/rimes/
 # Using french lex from http://www.barbery.net/lebarbery/noindex/pourlesnuls-standard.htm
 
-DICT = 'dict.dat'
-SYL = 'syl.dat'
+DICT = File.dirname(__FILE__)+'/dict.dat'
+SYL = File.dirname(__FILE__)+'/syl.dat'
 
 def words_from_file(file)
   words = {}
