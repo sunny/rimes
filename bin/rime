@@ -18,8 +18,10 @@
 # Thanks to bohwaz's http://tilt.eu.org/rimes/
 # Using french lex from http://www.barbery.net/lebarbery/noindex/pourlesnuls-standard.htm
 
-DICT = File.dirname(__FILE__)+'/dict.dat'
-SYL = File.dirname(__FILE__)+'/syl.dat'
+DATA_DIR = File.realpath(__FILE__ + '/../../data')
+
+DICT = "#{DATA_DIR}/dict.dat"
+SYL = "#{DATA_DIR}/syl.dat"
 
 def words_from_file(file)
   words = {}
