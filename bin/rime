@@ -18,7 +18,7 @@
 # Thanks to bohwaz's http://tilt.eu.org/rimes/
 # Using french lex from http://www.barbery.net/lebarbery/noindex/pourlesnuls-standard.htm
 
-DATA_DIR = File.realpath(__FILE__ + '/../../data')
+DATA_DIR = File.expand_path(__FILE__ + '/../../data')
 
 DICT = "#{DATA_DIR}/dict.dat"
 SYL = "#{DATA_DIR}/syl.dat"
