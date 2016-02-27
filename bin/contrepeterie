@@ -1,0 +1,37 @@
+#!/usr/bin/env ruby
+def words_from_file(file)
+  words = {}
+  open(file).each_line do |line|
+    value, phonetic = line.chomp.split(' ')
+    words[value] = phonetic
+  end
+  words
+end
+
+phonetic_one = ARGV[0]
+phonetic_two = ARGV[1]
+
+if !phonetic_one || !phonetic_two
+  puts "Usage: #{$0} phonetic phonetic"
+  puts
+  puts "Example: #{$0} b% p%"
+  puts "         > baie: paix"
+  puts "         > benne: penne"
+  puts "         ..."
+  exit 0
+end
+
+words = words_from_file("data/dict.dat")
+words_matching_one = words.select { |_, phonetic|
+  phonetic.include?(phonetic_one)
+}
+words_matching_one.each do |word, phonetic|
+  new_phonetic = phonetic.gsub(phonetic_one, phonetic_two)
+  words_matching_new_phonetic = words.select { |w, p| p == new_phonetic }
+
+  unless words_matching_new_phonetic.empty?
+    words_matching_new_phonetic.keys.each do |w|
+      puts "#{word}: #{w}"
+    end
+  end
+end
